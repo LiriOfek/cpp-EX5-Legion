@@ -47,3 +47,5 @@ std::shared_ptr<Apolon> create_and_add_apolon_to_list(std::shared_ptr<Apolon> &a
 	Address address);
 
 void print_current_apolon(std::shared_ptr<Apolon> current_apolon);
+
+void print_apolons(std::shared_ptr<Apolon> &apolon_list);

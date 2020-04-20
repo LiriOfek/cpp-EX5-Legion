@@ -151,3 +151,19 @@ void print_current_apolon(std::shared_ptr<Apolon> current_apolon) {
 		<< current_apolon->address.postal_code
 		<< std::endl;
 }
+
+void print_apolons(std::shared_ptr<Apolon> &apolon_list) {
+	/**
+	* @brief  print the fields of all the apolons that in the list
+	* @param  IN std::shared_ptr<Apolon> &apolon_list - the apolons list
+	* @return  this function has no return value
+	* @author  Liri
+	*/
+	std::shared_ptr<Apolon> current_apolon;
+	current_apolon = apolon_list;
+	while (nullptr != current_apolon) {
+		print_current_apolon(current_apolon);
+		current_apolon = current_apolon->_next;
+	}
+	std::cout << std::endl;
+}
