@@ -51,3 +51,7 @@ void print_current_apolon(std::shared_ptr<Apolon> current_apolon);
 void print_apolons(std::shared_ptr<Apolon> &apolon_list);
 
 void print_apolons_from_cycle(std::shared_ptr<Apolon> &apolon_list, int cycle);
+
+std::shared_ptr<Apolon> find_apolon(std::shared_ptr<Apolon> &apolon_list,
+	const char* first_name,
+	const char* last_name);

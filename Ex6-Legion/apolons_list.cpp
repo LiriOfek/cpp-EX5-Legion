@@ -186,3 +186,29 @@ void print_apolons_from_cycle(std::shared_ptr<Apolon> &apolon_list, int cycle) {
 	}
 	std::cout << std::endl;
 }
+
+std::shared_ptr<Apolon> find_apolon(std::shared_ptr<Apolon> &apolon_list,
+	const char* first_name,
+	const char* last_name) {
+	/**
+	* @brief  find the first apolon that mach the given first and last names
+	* @param  IN std::shared_ptr<Apolon> &apolon_list - the apolons list
+	*		  IN const char* first_name - the first name of the apolon we search
+	*		  IN const char* last_name - the last name of the apolon we search
+	*		  OUT std::shared_ptr<Apolon> - the apolon that we searched
+	* @return  std::shared_ptr<Apolon> the apolon we that match to the given
+	*			first and last names
+	* @author  Liri
+	*/
+	std::shared_ptr<Apolon> current_apolon;
+	current_apolon = apolon_list;
+	while (nullptr != current_apolon) {
+		/*the apolon found*/
+		if (current_apolon->first_name == first_name &&
+			current_apolon->last_name == last_name) {
+			break;
+		}
+		current_apolon = current_apolon->_next;
+	}
+	return current_apolon;
+}
