@@ -81,4 +81,44 @@ int length_of_list(std::shared_ptr<Apolon> apolons_list) {
 	return length;
 }
 
+std::shared_ptr<Apolon> create_and_add_apolon_to_list(std::shared_ptr<Apolon> &apolons_list,
+	std::string first_name,
+	std::string last_name,
+	int personal_number,
+	int age,
+	const char* gender,
+	const char* is_vegetrian,
+	int cycle_number,
+	Address address) {
+	/**
+	* @brief  create new apolon and add to the list of apolons
+	* @param  INOUT std::shared_ptr<Apolon> &apolons_list - the list of apolons
+	*		  IN std::string first_name - the first name of the new apolon
+	*		  IN std::string last_name - the last name of the new apolon
+	*		  IN int personal_number - the personal number of the new apolon
+	*		  IN int age - the age of the new apolon
+	*		  IN const char* gender - the gender of the new wapolon
+	*		  IN const char* is_vegetrian - string that says if the new apolon
+	*		  is vegetrian
+	*		  IN int cycle_number - the cycle number of the course of the new apolon
+	*		  IN Address address - the address of the new apolon
+	*		  OUT std::shared_ptr<Apolon> - the apolon list
+	* @return the sorted list by personal number after add the new apolon
+	* @notes  change the apolon list such that add to it the new apolon
+	* @author  Liri
+	*/
+	std::shared_ptr<Apolon> new_apolon(new Apolon());
+
+	new_apolon->first_name = first_name;
+	new_apolon->last_name = last_name;
+	new_apolon->personal_number = personal_number;
+	new_apolon->age = age;
+	new_apolon->gender = gender;
+	new_apolon->is_vegetrian = is_vegetrian;
+	new_apolon->cycle_number = cycle_number;
+	new_apolon->address = address;
+
+	add_apolon_to_sort_list(apolons_list, new_apolon);
+	return apolons_list;
+}
 
