@@ -251,3 +251,22 @@ std::shared_ptr<Apolon> remove_apolon(std::shared_ptr<Apolon> &apolon_list,
 	}
 	return apolon_list;
 }
+
+void remove_all_apolons_from_list(std::shared_ptr<Apolon> &apolon_list) {
+	/**
+	* @brief  remove all apolons from list, reset the pointers
+	* @param  INOUT std::shared_ptr<Apolon> &apolon_list - the apolons list
+	*          after remove all the apolons from it
+	* @return this function has no return value
+	* @notes  change the list of apolons such that it remove all
+	*			the apolons from it
+	* @author  Liri
+	*/
+	std::shared_ptr<Apolon> current_apolon;
+
+	while (nullptr != apolon_list) {
+		current_apolon = apolon_list;
+		apolon_list = apolon_list->_next;
+		current_apolon.reset();
+	}
+}

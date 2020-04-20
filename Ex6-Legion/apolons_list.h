@@ -59,3 +59,5 @@ std::shared_ptr<Apolon> find_apolon(std::shared_ptr<Apolon> &apolon_list,
 std::shared_ptr<Apolon> remove_apolon(std::shared_ptr<Apolon> &apolon_list,
 	std::string first_name,
 	std::string last_name);
+
+void remove_all_apolons_from_list(std::shared_ptr<Apolon> &apolon_list);
