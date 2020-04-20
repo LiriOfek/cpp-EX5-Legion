@@ -62,3 +62,23 @@ std::shared_ptr<Apolon> add_apolon_to_sort_list(std::shared_ptr<Apolon> &apolons
 	return add_apolon_to_middle_or_end_of_list(apolons_list, new_apolon);
 }
 
+int length_of_list(std::shared_ptr<Apolon> apolons_list) {
+	/**
+	* @brief  go through the list of the apolons and calculate the length
+	*		  of the list
+	* @param  IN std::shared_ptr<Apolon> &apolons_list - the list of apolons
+	*		  OUT int the length of the list
+	* @return the length of the given list
+	* @author  Liri
+	*/
+	int length = 0;
+	std::shared_ptr<Apolon> current_apolon;
+	current_apolon = apolons_list;
+	while (nullptr != current_apolon) {
+		length++;
+		current_apolon = current_apolon->_next;
+	}
+	return length;
+}
+
+
