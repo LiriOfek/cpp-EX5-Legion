@@ -212,3 +212,42 @@ std::shared_ptr<Apolon> find_apolon(std::shared_ptr<Apolon> &apolon_list,
 	}
 	return current_apolon;
 }
+
+std::shared_ptr<Apolon> remove_apolon(std::shared_ptr<Apolon> &apolon_list,
+	std::string first_name,
+	std::string last_name) {
+	/**
+	* @brief  remove the first apolon that match to the given first and last names
+	* @param  INOUT std::shared_ptr<Apolon> &apolon_list - the apolons list
+	*		  IN const char* first_name - the first name of the apolon we want to remove
+	*		  IN const char* last_name - the last name of the apolon we want to remove
+	*	      OUT std::shared_ptr<Apolon> the apolon list after remove the apolon that
+	*		  match to  the first and last given names
+	* @return std::shared_ptr<Apolon> the apolon list after remove the apolon that
+	*		  match to the first and last given names
+	* @notes  change the list of apolons such that it remove the apolon with the
+	*		  given first and last names
+	* @author  Liri
+	*/
+	std::shared_ptr<Apolon> current_apolon;
+	current_apolon = apolon_list;
+	if (apolon_list->first_name == first_name &&
+		apolon_list->last_name == last_name) {
+		/*remove first apolon*/
+		current_apolon.reset();
+		return apolon_list->_next;
+	}
+	while (nullptr != current_apolon->_next) {
+		/*remove apolon from the middle or end of the list*/
+		if (current_apolon->_next->first_name == first_name &&
+			current_apolon->_next->last_name == last_name)
+		{
+			std::shared_ptr<Apolon> apolon_to_remove = current_apolon->_next;
+			current_apolon->_next = apolon_to_remove->_next;
+			apolon_to_remove.reset();
+			break;
+		}
+		current_apolon = current_apolon->_next;
+	}
+	return apolon_list;
+}
