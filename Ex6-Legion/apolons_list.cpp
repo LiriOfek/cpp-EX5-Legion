@@ -167,3 +167,22 @@ void print_apolons(std::shared_ptr<Apolon> &apolon_list) {
 	}
 	std::cout << std::endl;
 }
+
+void print_apolons_from_cycle(std::shared_ptr<Apolon> &apolon_list, int cycle) {
+	/**
+	* @brief  print the apolons from the given cycle
+	* @param  IN std::shared_ptr<Apolon> &apolon_list - the apolons list
+	*		  IN int cycle - the given cycke
+	* @return  this function has no return value
+	* @author  Liri
+	*/
+	std::shared_ptr<Apolon> current_apolon;
+	current_apolon = apolon_list;
+	while (nullptr != current_apolon) {
+		if (current_apolon->cycle_number == cycle) {
+			print_current_apolon(current_apolon);
+		}
+		current_apolon = current_apolon->_next;
+	}
+	std::cout << std::endl;
+}
