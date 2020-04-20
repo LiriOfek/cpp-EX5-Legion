@@ -122,3 +122,32 @@ std::shared_ptr<Apolon> create_and_add_apolon_to_list(std::shared_ptr<Apolon> &a
 	return apolons_list;
 }
 
+void print_current_apolon(std::shared_ptr<Apolon> current_apolon) {
+	/**
+	* @brief  print the fields of current apolon
+	* @param  IN std::shared_ptr<Apolon> current_apolon - the current apolon
+	* @return  this function has no return value
+	* @author  Liri
+	*/
+	std::cout << NAME
+		<< current_apolon->first_name
+		<< SPACE
+		<< current_apolon->last_name
+		<< PERSONAL_NUMBER
+		<< current_apolon->personal_number
+		<< AGE
+		<< current_apolon->age
+		<< GENDER
+		<< current_apolon->gender
+		<< IS_VEGETRIAN
+		<< current_apolon->is_vegetrian
+		<< CYCLE_NUMBER
+		<< current_apolon->cycle_number
+		<< APARTMENT_NUMBER
+		<< current_apolon->address.apartment_number
+		<< STREET
+		<< current_apolon->address.street_name
+		<< POSTAL_CODE
+		<< current_apolon->address.postal_code
+		<< std::endl;
+}
